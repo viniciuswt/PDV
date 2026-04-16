@@ -1,0 +1,84 @@
+{
+  "name": "pdv-frontend",
+  "version": "0.1.0",
+  "private": true,
+  "main": "public/electron.js",
+  "homepage": ".",
+  "author": {
+    "name": "Victor Chagas",
+    "email": "victorsantoschagas@hotmail.com"
+  },
+  "dependencies": {
+    "@fontsource/roboto": "^4.5.8",
+    "@testing-library/jest-dom": "^5.16.5",
+    "@testing-library/react": "^13.4.0",
+    "@testing-library/user-event": "^13.5.0",
+    "better-sqlite3": "^8.0.0",
+    "electron-is-dev": "^2.0.0",
+    "pdfmake": "^0.2.7",
+    "primeicons": "^6.0.1",
+    "primereact": "^9.2.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-icons": "^4.6.0",
+    "react-is": "^18.2.0",
+    "react-query": "^3.39.3",
+    "react-router-dom": "^6.8.1",
+    "react-scripts": "5.0.1",
+    "react-to-print": "^2.14.11",
+    "react-toastify": "^9.1.1",
+    "sqlite": "^4.1.2",
+    "sqlite3": "^5.1.2",
+    "styled-components": "^5.3.6",
+    "web-vitals": "^2.1.4"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "electron": "electron .",
+    "electron:package:win": "yarn build && electron-builder -w -c.extraMetadata.main=build/electron.js"
+  },
+  "build": {
+    "appId": "com.test.electron",
+    "productName": "Gestão do preço",
+    "files": [
+      "build/**/*",
+      "node_modules/**/*"
+    ],
+    "directories": {
+      "buildResources": "public"
+    },
+    "extraResources": {
+      "from": "./public/db/",
+      "to": "./db/",
+      "filter": [
+        "**/*"
+      ]
+    }
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "electron": "^22.0.0",
+    "electron-build": "^0.0.3",
+    "electron-builder": "^23.6.0"
+  }
+}

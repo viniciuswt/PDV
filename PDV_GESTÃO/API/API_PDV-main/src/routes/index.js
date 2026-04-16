@@ -1,0 +1,21 @@
+const express = require("express")
+
+const ProductsRouter = require("./ProductsRouter")
+const SalesRouter = require("./SalesRouter")
+const AuthRouter = require("./AuthRouter")
+const SalesBoxRouter = require('./SalesBoxRouter')
+const TransactionsRouter = require('./TransactionsRouter')
+const OperatorsRouter = require("./OperatorsRouter")
+const MethodsRouter = require("./MethodsRouter")
+const CheckToken = require("../middlewares/CheckTokenMiddleware")
+const CheckAdmin = require("../middlewares/CheckAdmin")
+
+const router = express.Router()
+router.use('/products',CheckToken, ProductsRouter)
+router.use('/sales',CheckToken,CheckAdmin,SalesRouter)
+router.use('/operators',CheckToken,CheckAdmin, OperatorsRouter)
+router.use('/salesBox',CheckToken, SalesBoxRouter)
+router.use('/methods',CheckToken, MethodsRouter)
+router.use('/transactions',CheckToken,CheckAdmin, TransactionsRouter)
+router.use('/auth',AuthRouter)
+module.exports = router
